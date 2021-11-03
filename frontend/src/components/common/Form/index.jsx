@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-function InputForm() {
+const urlRX =
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+
+function isValidUrl(url) {
+  if (url.match(urlRX)) return true;
+  return false;
+}
+
+function InputForm({ setInputUrl }) {
+  const [inputData, setInputData] = useState("");
   return (
     <div className="row">
       <div className="col-xl-12">
@@ -10,6 +19,10 @@ function InputForm() {
               type="text"
               className="form-control"
               placeholder="Enter RSS URL"
+              defaultValue={inputData}
+              onChange={(event) => {
+                if (isValidUrl) setInputData(event.target.value);
+              }}
             />
           </div>
           <div className="form-group">
@@ -17,6 +30,9 @@ function InputForm() {
               type="submit"
               className="btn btn-primary btn-block"
               value="Search"
+              onClick={() => {
+                setInputUrl(inputData);
+              }}
             />
           </div>
         </form>

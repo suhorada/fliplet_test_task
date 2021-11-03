@@ -1,15 +1,14 @@
 import React from "react";
 import NewsCard from "../common/NewsCard";
 
-function NewsBlock(props) {
-  const news = props.news;
-
+function NewsBlock({ news = [], img }) {
   return (
-    <div class="row">
-      <div class="col-xl-12">
+    <div className="row">
+      <div className="col-xl-12">
         <h1>Articles</h1>
-        {/* {news.map((article) => (<NewsCard data={article}/>))} */}
-        <NewsCard />
+        {news.map((article) => (
+          <NewsCard key={article.pubDate} article={article} img={img} />
+        ))}
       </div>
     </div>
   );

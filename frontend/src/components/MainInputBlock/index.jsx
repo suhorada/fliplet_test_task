@@ -1,7 +1,7 @@
 import React from "react";
 import InputForm from "../common/Form";
 
-function MainInputBlock() {
+function MainInputBlock({setInputUrl}) {
   return (
     <>
       <div className="row">
@@ -9,7 +9,7 @@ function MainInputBlock() {
           <h1>RSS Feeds</h1>
         </div>
       </div>
-      <InputForm />
+      <InputForm setInputUrl={setInputUrl}/>
     </>
   );
 }
