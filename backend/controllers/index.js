@@ -1,9 +1,11 @@
-const service = require('../services');
+const indexService = require('../services');
 
 async function getDataFromRSS(req, res) {
   try {
-    res.status(200).send(service.rssToJSON(req.query.rssurl));
+    const response = await indexService.rssToJSON(req.query.rss_url);
+    res.status(200).send(response.data);
   } catch (err) {
+    console.log(err)
     res.status(500).send(err);
   }
 }

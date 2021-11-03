@@ -11,5 +11,7 @@
         "sourceType": "module"
     },
     "rules": {
+      "properties": "never",
+      "ignoreImports": true 
     }
 }
