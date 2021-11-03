@@ -1,11 +1,9 @@
-FROM ./
+FROM node:12.13-alpine
 
 WORKDIR /usr/src/app
 
-ENV PORT 9999
-
 COPY . ./
 
-RUN npm install
+RUN npm ci
 
 CMD [ "npm", "start" ]
