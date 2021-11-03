@@ -19,6 +19,9 @@ npm start
 ```
 
 After you can go to localhost:3000 and see your website
+
+## Tests
+To run tests you can use npm test in backend/ dir
 ## Api
 
 ### Forks
