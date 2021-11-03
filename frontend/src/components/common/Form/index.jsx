@@ -38,10 +38,10 @@ function InputForm({ setInputUrl, loading }) {
           </div>
           <div className="form-group">
             <input
-              type="submit"
+              type="button"
               className="btn btn-primary btn-block"
               value="Search"
-              disabled={() => isValidData || loading}
+              disabled={isValidData || loading}
               onClick={() => {
                 setInputUrl(inputData);
               }}

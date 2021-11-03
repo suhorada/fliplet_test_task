@@ -9,5 +9,5 @@ export function getNewsLS(url) {
   if (Date.now() - prevData?.time > TEN_MINS_TO_MS) {
     return false;
   }
-  return prevData.feed;
+  return prevData?.feed;
 }
