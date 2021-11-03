@@ -6,8 +6,8 @@ function NewsBlock({ news = [], img }) {
     <div className="row">
       <div className="col-xl-12">
         <h1>Articles</h1>
-        {news.map((article) => (
-          <NewsCard key={Math.random() * 1000} article={article} img={img} />
+        {news.map((article, id) => (
+          <NewsCard key={id} article={article} img={img} />
         ))}
       </div>
     </div>

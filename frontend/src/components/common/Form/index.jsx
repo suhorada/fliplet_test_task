@@ -2,14 +2,14 @@ import React, { useState } from "react";
 
 const urlRX =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-
-function InputForm({ setInputUrl, loading }) {
-  const [inputData, setInputData] = useState("");
-  const [isValid, setValidation] = useState(true);
-
+  
   function isValidUrl(url) {
     return !url.match(urlRX);
   }
+
+function InputForm({ setInputUrl, loading }) {
+  const [inputData, setInputData] = useState("");
+  const [isValidData, setValidation] = useState(true);
 
   return (
     <div className="row">
@@ -30,7 +30,7 @@ function InputForm({ setInputUrl, loading }) {
               }}
             />
             <br/>
-            { isValid &&
+            { isValidData &&
               <div className="alert alert-danger" role="alert">
                 Invalid url
               </div>
@@ -41,7 +41,7 @@ function InputForm({ setInputUrl, loading }) {
               type="submit"
               className="btn btn-primary btn-block"
               value="Search"
-              disabled={isValid || loading}
+              disabled={() => isValidData || loading}
               onClick={() => {
                 setInputUrl(inputData);
               }}

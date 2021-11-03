@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import axios from "axios";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import MainInputBlock from "../components/MainInputBlock";
 import NewsBlock from "../components/NewsBlock";
-import axios from "axios";
 import { getNewsLS, setNewsLS } from "../utils";
 
 function MainPage() {
@@ -9,7 +10,7 @@ function MainPage() {
   const [inputUrl, setInputUrl] = useState();
   const [loading, setLoading] = useState(false);
 
-  function getData(rss_url) {
+  const getData = useCallback((rss_url) => {
     if (rss_url) {
       if (!getNewsLS(rss_url)) {
         setLoading(true);
@@ -20,7 +21,7 @@ function MainPage() {
         });
       } else setNews(getNewsLS(rss_url));
     }
-  }
+  }, []);
 
   useEffect(() => {
     getData(inputUrl);
