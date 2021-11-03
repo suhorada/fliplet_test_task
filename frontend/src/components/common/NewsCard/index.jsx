@@ -1,6 +1,7 @@
 import React from "react";
 
 function NewsCard({ article, img }) {
+  console.log(`Link: ${article.link}\nTitle: ${article.title}\nDescription: ${article.description}`)
   return (
     <div className="card">
       <img
